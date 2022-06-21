@@ -1,3 +1,4 @@
+package count_M_num;
 
 public class CountM {
 	public static void main(String[] args) {
