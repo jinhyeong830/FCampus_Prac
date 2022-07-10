@@ -41,6 +41,40 @@ public class SingledLinkedList<T> {
 			}
 		}
 	}
+	
+	//SEARCH
+	public Node<T> search(T data) {//data가 찾고 싶은 데이터!
+		if(this.head==null) {
+			return null;
+		}else {
+			Node<T> node=this.head; //첫 노드를 head에 대입
+			while(node!=null) { //노드 끝까지 돌려라!
+				if(node.data==data) {//연결리스트 노드의 데이터가 찾고 있는data라면
+					return node; //현재 노드 리턴
+				}else {
+					node=node.next; //data못찾았으니 다음 데이터검색
+				}
+			}
+			return null; //노드 끝까지 돌렸는데도 찾고 있는 data를 못찾았다묜 null 리턴
+		}
+		
+	}
+	
+	//INSERT
+	public void insertNode(T data, T isData) {//data는 원래 노드의 데이터이고 isData는 삽입할 데이터
+											  //원래 노드의 데이터가 필요한 이유? 원래 노드의 데이터를 찾고 삽입할 데이터를 그 다음 위치에 위치시키려구
+		Node <T> searchedNode=this.search(isData);
+		//searchedNode라는 Node선언
+		
+		if(search(data)==null) { //원래 데이터가 없다면
+			this.addNode(data); //data삽입(맨끝에 삽입될 것-search메소드의 로직에 의해: 끝까지 검색하니까?)
+		}else {
+			Node<T> nextNode=searchedNode.next;
+			searchedNode.next=new Node<T>(data);
+			searchedNode.next.next=nextNode;
+		}
+	}
+	
 
 	public static void main(String[] args) {
 		
