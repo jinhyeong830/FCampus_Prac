@@ -5,6 +5,7 @@ public class SingledLinkedList<T> {
 	public Node<T> head=null;//아래 만들 Node<T> 클래스 참조할 것
 	
 //	@SuppressWarnings("hiding")//이건 모니? 이클립스 추천템.. class Node<T>의 제네릭에 노란밑줄 없애주네..
+	@SuppressWarnings("hiding")
 	public class Node<T>{//노드 선언 ::Node=data+pointer
 		T data;
 		Node<T> next=null;
